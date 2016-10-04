@@ -1,0 +1,199 @@
+.fab-btn {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+.iot-link-active {
+  background-color: #607D8B;
+  color: #37474F;
+}
+.iot-page.is-show {
+  height: calc(100vh - 64px);
+  display: block;
+}
+
+.iot-page {
+  display: none;
+}
+.mdl-list__item-primary-content .mdl-list__item-sub-title{
+  overflow: hidden;
+  display: block;
+  text-overflow:ellipsis;
+}
+.iot-item-title{
+  overflow: hidden;
+  display: block;
+  text-overflow:ellipsis;
+}
+.mdl-list__item{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+/*iot switch*/
+.mdl-switch {
+  width: auto;
+}
+.mdl-switch.is-upgraded {
+  padding-left: 28px;
+}
+/*iot switch*/
+.iot-list-two {
+  width: 100%;
+}
+/*旋转动画*/
+.iot-rotate{
+  -webkit-transform:transition3d(0,0,0);
+  animation:ele-rotate 1s infinite;
+  animation-timing-function:linear;
+  /* Safari and Chrome */
+  -webkit-animation:ele-rotate 1s infinite;
+  -webkit-animation-timing-function:linear;
+}
+@keyframes ele-rotate{
+  0%{ -webkit-transform: rotate(0deg); }
+  100%{ -webkit-transform: rotate(360deg); }
+}
+/*淡入动画*/
+.iot-show{
+  animation:card-shadow 0.3s;
+  animation-iteration-count:1;
+  /* Safari and Chrome */
+  -webkit-animation:card-shadow 0.3s;
+  -webkit-animation-iteration-count:1;
+}
+@keyframes card-shadow{
+  0%   {opacity:0;}
+  100% {opacity:1;}
+}
+/* Safari and Chrome */
+@-webkit-keyframes card-shadow{
+  0%   {opacity:0;}
+  100% {opacity:1;}
+}
+/*聊天输入区*/
+.iot-chat-box {
+    padding: 10px 16px;
+    color: #9e9e9e;
+    background-color: #424242;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: calc(240px);
+    height: 20vh;
+}
+.iot-chat-p {
+    margin: 0 0 5px;
+}
+.iot-chat-box-left{
+    float: left;
+    width: 90%;
+    display: block;
+    position: relative;
+}
+.iot-chat-textarea{
+    resize: none;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    background: rgba(255, 255, 255, 1);
+    font-size: medium;
+    width: 100%;
+    /* bottom: 0; */
+    height: calc(20vh - 10px);
+    padding-bottom: 0px;
+    overflow: auto;
+    border-radius: 5px;
+}
+.fab-btn{
+  height: 70px;
+  min-width: 70px;
+  width: 70px;
+}
+.iot-chat-content{
+    text-overflow: ellipsis;
+    max-width: 70vw;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    line-height: 1;
+    min-height: 48px;
+    padding: 16px;
+    cursor: default;
+    color: rgba(0,0,0,.87);
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.iot-chat-content-text{
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 18px;
+    color: rgba(0,0,0,.6);
+    display: block;
+    padding: 10px;
+}
+.iot-chat-msgbox{
+
+      height: 100%;
+    position: relative;
+    /* bottom: 0; */
+    /* z-index: 0; */
+    overflow: overlay;
+    max-height: calc(80vh - 64px - 8px - 14px - 8px - 14px);
+        margin: 0;
+    /* padding-bottom: 0; */
+    padding: 0;
+    margin-bottom: 20vh;
+}
+.iot-main-page{
+  height: calc(100vh - 64px);
+}
+.iot-float-right{
+  float: right;
+}
+.iot-chat-userlist{
+    padding: 16px 40px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+.iot-chat-useritem{
+    margin-right: 32px;
+    vertical-align: middle;
+}
+@media screen and (max-width: 1024px){
+  .iot-page.is-show {
+    height: calc(100vh - 56px);
+    display: block;
+  }
+  .iot-chat-box {
+    left: 0;
+    height: 25vh;
+  }
+  .iot-chat-textarea{
+    height: calc(25vh - 10px);
+    min-height: 100px;
+}
+.fab-btn{
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+.iot-chat-content{
+    max-width: 100vw;
+  }
+.iot-main-page{
+  height: calc(100vh - 56px);
+}
+.iot-chat-msgbox{
+    margin-bottom: 25vh;
+}
+}

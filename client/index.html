@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="LuChat - A Anymouns chat ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LuChat</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="LuChat">
+    <link rel="apple-touch-icon-precomposed" href="images/ios120.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.proxy.ustclug.org/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.proxy.ustclug.org/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./mdl/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="./mdl.demo.css">
+    <link rel="stylesheet" href="./iot.main.css">
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <!--Header-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title" id="header-title">LuChat</span>
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item" id="clear-msgbox">清屏</li>
+            <li class="mdl-menu__item" id="open-setting">设置</li>
+            <li class="mdl-menu__item">关于</li>
+          </ul>
+        </div>
+      </header>
+      <!--Header-->
+
+      <!--Side bar-->
+      <div id="side-bar" class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <span>当前在线用户</span>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <div id="userlist">
+          </div>
+          
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href="#"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>帮助</a>
+        </nav>
+      </div>
+      <!--Side Bar-->
+
+      <main class="mdl-layout__content mdl-color--grey-100" id="main">
+        <section id="index" class="iot-page is-show">
+          <ul id="chat-msgbox" class="demo-list-three mdl-list iot-chat-msgbox">
+            </ul>
+          
+          <!--Fab button-->
+          <button id="chat-send" class=" fab-btn mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <div class=""><i class="material-icons">&#xE0B9;</i></div>
+          </button>
+
+      </section>
+      <footer class="iot-chat-box">
+          <textarea  class="iot-chat-textarea" placeholder="在此输入文本信息 [Enter]发送 [CTRL+Enter]换行" ></textarea>
+          </footer>
+      <section id="devcfg" class="iot-page">
+          <div id="main-page2" class="mdl-grid demo-content" >设备管理</div>
+      </section>
+      <!--Setting-->
+      <dialog id="setting-dialog" class="mdl-dialog iot-show">
+        <h4 class="mdl-dialog__title">保存设定</h4>
+        <div class="mdl-dialog__content">
+          修改昵称:<div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input nickname" type="text" id="set-nickname" maxlength="14">
+              <label class="mdl-textfield__label" for="set-nickname">(未修改)</label>
+            </div>
+          <p>初始化:<button type="button" class="mdl-button iot-float-right wipe">抹除数据</button></p>
+        </div>
+        <div  class="mdl-dialog__actions">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent savedata">保存设定</button>
+          <button type="button" class="mdl-button mdl-js-button close">取消</button>
+
+        </div>
+      </dialog>
+      <!--First Setting-->
+      <dialog id="first-setting-dialog" class="mdl-dialog iot-show">
+        <h4 class="mdl-dialog__title">欢迎!</h4>
+        <div class="mdl-dialog__content">
+          欢迎来到 LuChat 匿名聊天室!
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input nickname" type="text" id="set-nickname" maxlength="14">
+              <label class="mdl-textfield__label" for="set-nickname">请输入您的昵称</label>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent savedata">开始聊天</button>
+          <!--<button type="button" class="mdl-button close">取消</button>-->
+        </div>
+      </dialog>
+        
+      </main>
+      <div id="msgbox" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+    </div>
+    <script src="./mdl/material.min.js"></script>
+    <script src="./iot.js"></script>
+    <!--Setting Dialog-->
+        <script>
+            //init Dialog Element
+            var setting_dialog = document.querySelector("#setting-dialog");
+            var showDialogButton = document.querySelector("#open-setting");
+            //清屏
+            document.querySelector("#clear-msgbox").addEventListener('click', function() {
+              document.querySelector("#chat-msgbox").innerHTML="";
+            });
+            if (! setting_dialog.showModal) {
+              dialogPolyfill.registerDialog(setting_dialog);
+            }
+            //打开设置对话框
+            showDialogButton.addEventListener('click', function() {
+              setting_dialog.showModal();
+              setting_dialog.querySelector('#set-nickname').value=null;
+            });
+            //保存设置
+            setting_dialog.querySelector('.savedata').addEventListener('click', function() {
+              if(setting_dialog.querySelector('#set-nickname').value!=""){
+                window.localStorage["nickname"]=setting_dialog.querySelector('#set-nickname').value;
+              }
+              socket.close();
+              setting_dialog.close();
+            });
+            //关闭设置对话框
+            setting_dialog.querySelector('.close').addEventListener('click', function() {
+              setting_dialog.close();
+            });
+            //初始化设定
+            setting_dialog.querySelector('.wipe').addEventListener('click', function() {
+              window.localStorage.clear();
+              var snackbarContainer = document.getElementById('msgbox');
+              var data = {
+                message: "已清除所有数据,请刷新页面!"
+              }
+              snackbarContainer.MaterialSnackbar.showSnackbar(data);
+              setting_dialog.close();
+            });
+        </script>
+  </body>
+</html>
